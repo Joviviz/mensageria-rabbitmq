@@ -5,7 +5,7 @@ services:
     container_name: meu-rabbitmq
     ports:
       - "5672:5672"   # Porta para os scripts enviarem mensagens
-      - "15672:15672" # Porta para você abrir o Painel Web
+      - "15672:15672" # Porta para abrir o Painel Web
     environment:
       RABBITMQ_DEFAULT_USER: admin
       RABBITMQ_DEFAULT_PASS: admin123
