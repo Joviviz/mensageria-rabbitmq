@@ -13,13 +13,11 @@ O sistema é composto por três pilares principais:
 3. **Consumidor (`consumidor.py`):** Fica em escuta ativa (loop) conectado ao broker para processar os pedidos em tempo real assim que chegam.
 
 ## Tecnologias Utilizadas
-
 * **Linguagem:** Python 3.x
 * **Biblioteca de Conexão:** [Pika](https://pika.readthedocs.io/) (Cliente AMQP oficial para Python)
 * **Message Broker:** Apache RabbitMQ (via CloudAMQP)
 * **Ambiente de Execução:** GitHub Codespaces (Ambiente virtualizado em nuvem) / Docker (para testes locais)
 
----
 
 ## Como Executar o Projeto (Via GitHub Codespaces)
 
@@ -32,14 +30,12 @@ pip install pika
 ```
 
 ### 2. Executando o Consumidor
-
 Inicie o serviço que ficará escutando a fila à espera de novas mensagens:
 ```bash
 python3 consumidor.py
 ```
 
 ### 3. Executando o Produtor
-
 Em um terminal separado (ou dividindo a tela do terminal do Codespaces), execute o produtor para disparar um novo pedido com ID aleatório:
 ```bash
 python3 produtor.py
