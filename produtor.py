@@ -1,7 +1,7 @@
 import pika
 
 # Config da mensageria
-URL_CLOUDAMQP = "amqps://vidpgjuy:OAN8abcH8PfivUpPmdgGbtL9lxsIBmer@shark.rmq.cloudamqp.com/vidpgjuy"
+URL_CLOUDAMQP = "" # Inserir o URL do AMQP
 parameters = pika.URLParameters(URL_CLOUDAMQP)
 connection = pika.BlockingConnection(parameters)
 channel = connection.channel()
