@@ -1,5 +1,4 @@
 import pika
-import random
 
 # Config da mensageria
 URL_CLOUDAMQP = "amqps://vidpgjuy:OAN8abcH8PfivUpPmdgGbtL9lxsIBmer@shark.rmq.cloudamqp.com/vidpgjuy"
@@ -10,10 +9,16 @@ channel = connection.channel()
 channel.queue_declare(queue='fila_trabalho')
 
 # Conteudo
-request_number = random.randint(1000, 9999)
-msg = f"Pedido #{request_number} enviado para processamento assíncrono!"
-channel.basic_publish(exchange='', routing_key='fila_trabalho', body=msg)
+print(" --- PRODUTOR INTERATIVO LIGADO ---")
+print(" Digite sua mensagem e aperte Enter para enviar.")
+print(" (Digite 'sair' para encerrar)\n")
 
-print(f" [✔] Produtor enviou com sucesso: '{msg}'")
-
-connection.close()
+try:
+    while True:
+        msg = input(" > Mensagem: ")
+        if msg.lower() == 'sair':
+            break
+        channel.basic_publish(exchange='', routing_key='fila_trabalho', body=msg)
+        print(f" [✔] Produtor enviou com sucesso: '{msg}'")
+finally:
+    connection.close()
