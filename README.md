@@ -29,13 +29,19 @@ Abra o terminal integrado do seu ambiente e instale a dependência do projeto:
 pip install pika
 ```
 
-### 2. Executando o Consumidor
+### 2. Configuração das Credenciais
+Abra os arquivos (`produtor.py`) e (`consumidor.py`) e insira a sua URL do CloudAMQP entre as aspas da variável:
+```bash
+URL_CLOUDAMQP = "" # Inserir o URL do AMQP
+```
+
+### 3. Executando o Consumidor
 Inicie o serviço que ficará escutando a fila à espera de novas mensagens:
 ```bash
 python3 consumidor.py
 ```
 
-### 3. Executando o Produtor
+### 4. Executando o Produtor
 Em um terminal separado (ou dividindo a tela do terminal do Codespaces), execute o produtor para disparar um novo pedido com ID aleatório:
 ```bash
 python3 produtor.py
